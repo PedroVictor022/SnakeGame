@@ -8,13 +8,14 @@ let snakeEixoY = 1;
 let snakeEixoX = snakeEixoY = 10;
 
 // Tela do Game
+let tamanhoCaminho;
 let screenWidth = tamanhoCaminho = 20;
 let nY;
 let nX = nY = 0;
 
 // Food Snake
+let appleY;
 let appleX = (appleY = 15);
-let appleY
 
 
 let canvas;
@@ -45,6 +46,12 @@ function keyDownEvent(event) {
    }
 }
 
+// Random Apple location
+
+function randomAppleLocation() {
+   return Math.floor(Math.random() * screenWidth);
+}
+
 // Update game
 function drawGame() {
    snakeEixoX += nX;
@@ -63,5 +70,10 @@ function drawGame() {
       snakeEixoY = 0;
    }
 
+   if (snakeEixoX == appleX && snakeEixoY == appleX) {
+      tamanhoCauda++;
+      appleX = randomAppleLocation();
+   }
 
 }
+
