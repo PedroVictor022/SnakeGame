@@ -1,6 +1,10 @@
 let canvas;
 let ctx;
 
+let izi = document.getElementById("izi");
+let normal = document.getElementById("normal");
+let hard = document.getElementById("hard");
+
 let defaultTamanhoCauda = 3;
 let tamanhoCauda = defaultTamanhoCauda;
 let caminhoCobra = [];
@@ -18,7 +22,7 @@ window.onload = function () {
    ctx = canvas.getContext("2d");
    document.addEventListener("keydown", keyDownEvent);
    let x = 8;
-   setInterval(drawGame, 500 / x);
+   setInterval(drawGame, 700 / x);
 };
 
 function keyDownEvent(event) {
