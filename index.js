@@ -5,6 +5,9 @@ let izi = document.getElementById("izi");
 let normal = document.getElementById("normal");
 let hard = document.getElementById("hard");
 
+let counterApple = document.getElementById("counter");
+let snakeWidth = document.getElementById("widthSnake");
+
 let defaultTamanhoCauda = 3;
 let tamanhoCauda = defaultTamanhoCauda;
 let caminhoCobra = [];
@@ -16,13 +19,13 @@ let nX = nY = 0;
 
 //Criação da comida
 let appleX = (appleY = 15);
-
+let countApple = 0;
 window.onload = function () {
    canvas = document.getElementById("canvas");
    ctx = canvas.getContext("2d");
    document.addEventListener("keydown", keyDownEvent);
    let x = 8;
-   setInterval(drawGame, 700 / x);
+   setInterval(drawGame, 1000 / x);
 };
 
 function keyDownEvent(event) {
@@ -72,6 +75,8 @@ function drawGame() {
       tamanhoCauda++;
       appleX = Math.floor(Math.random() * screenWidth);
       appleY = Math.floor(Math.random() * screenWidth);
+      countApple++;
+      counterApple.innerText = `Quantidade de frutas: ${countApple}`
    }
 
 
@@ -87,7 +92,9 @@ function drawGame() {
       );
       if (caminhoCobra[i].x == snakeEixoX && caminhoCobra[i].y == cobraEixoY) {
          tamanhoCauda = defaultTamanhoCauda;
+         snakeWidth.innerText = `Tamanho: ${tamanhoCauda}`
       }
+      snakeWidth.innerText = `Tamanho: ${tamanhoCauda}`
    }
    ctx.fillStyle = "red";
    ctx.fillRect(appleX * tamanhoCaminho, appleY * tamanhoCaminho, tamanhoCaminho, tamanhoCaminho);
