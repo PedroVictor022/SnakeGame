@@ -13,13 +13,12 @@ let tamanhoCauda = defaultTamanhoCauda;
 let caminhoCobra = [];
 let snakeEixoX = cobraEixoY = 10;
 
-//Criação da tela de jogo
 let screenWidth = tamanhoCaminho = 20;
 let nX = nY = 0;
 
-//Criação da comida
 let appleX = (appleY = 15);
 let countApple = 0;
+
 window.onload = function () {
    canvas = document.getElementById("canvas");
    ctx = canvas.getContext("2d");
@@ -29,8 +28,6 @@ window.onload = function () {
 };
 
 function keyDownEvent(event) {
-   // nX e nY representam as direções que a cobra irá percorrer
-   // nos eixos X e Y, respectivamente
    switch (event.keyCode) {
       case 37:
          nX = -1;
@@ -70,10 +67,9 @@ function drawGame() {
       cobraEixoY = 0;
    }
 
-   //Se a cobra comer o alimento
    if (snakeEixoX == appleX && cobraEixoY == appleY) {
       tamanhoCauda++;
-      appleX = Math.floor(Math.random() * screenWidth);
+      appleX = Math.floor(Math.random() * (Math.random() * screenWidth));
       appleY = Math.floor(Math.random() * screenWidth);
       countApple++;
       counterApple.innerText = `Quantidade de frutas: ${countApple}`
